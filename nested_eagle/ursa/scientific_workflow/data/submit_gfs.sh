@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#SBATCH -J gfs_data
+#SBATCH -J nested_eagle_gfs_preprocessing
 #SBATCH -o slurm/gfs_preprocessing.%j.out
 #SBATCH -e slurm/gfs_preprocessing.%j.err
 #SBATCH --account=epic

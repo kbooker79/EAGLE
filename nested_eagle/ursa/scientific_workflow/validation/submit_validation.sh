@@ -1,8 +1,8 @@
 #!/bin/bash
 
-#SBATCH -J perform_validation 
-#SBATCH -o slurm-%j.out
-#SBATCH -e slurm-.%j.err
+#SBATCH -J nested_eagle_validation 
+#SBATCH -o slurm/validation.%j.out
+#SBATCH -e slurm/validation.%j.err
 #SBATCH --account=epic
 #SBATCH --partition=u1-service
 #SBATCH --mem=128g

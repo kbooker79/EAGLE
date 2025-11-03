@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#SBATCH -J create_grids
+#SBATCH -J nested_eagle_create_grids
 #SBATCH -o slurm/grids_preprocessing.%j.out
 #SBATCH -e slurm/grids_preprocessing.%j.err
 #SBATCH --account=epic
