@@ -6,8 +6,9 @@ Before starting anything, you must create two conda environments.
 
 These environments have already been made for you on Ursa and can by found by running `source /scratch4/NAGAPE/epic/role-epic/miniconda/bin/activate`
 
-Then, simply activate the environments by running `conda activate eagle` or `conda activate wxvx`
+You do not need to activate these conda environments yourself on Ursa. Each slurm job will activate it for you.
 
+### Conda Environment Setup Elsewhere
 
 If you are not running on Ursa, or wish to create the environments yourself, run the following commands:
 
@@ -24,4 +25,6 @@ pip install 'flash-attn<2.8' --no-build-isolation
 conda create -y -n wxvx -c ufs-community -c paul.madden wxvx -c conda-forge --override-channels
 ```
 
-Note: These commands work on Ursa and may require tweaking for other machines.
+Then, simply activate the environments by running `conda activate eagle` or `conda activate wxvx`
+
+Note: These commands currently work on Ursa and may require tweaking for other machines.

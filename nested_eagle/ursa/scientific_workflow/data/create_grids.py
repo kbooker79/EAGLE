@@ -1,3 +1,7 @@
+# Filename: create_grids.py
+# Author: Tim Smith, NOAA PSL
+# Description: Creation of target grids required for data processing and model training.
+
 import os
 import xesmf
 import cf_xarray as cfxr

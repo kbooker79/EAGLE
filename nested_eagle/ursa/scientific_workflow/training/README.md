@@ -2,6 +2,8 @@
 
 Run`sbatch submit_training.sh`
 
+Note: Make sure that you update `#SBATCH --account=epic` within the slurm scripts to reflect your account.
+
 After submission, go into the `outputs/` folder to monitor training. You will see the following model output:
 
 1. Logs: found within a folder including the date of your run (e.g. `2025-10-22`)
