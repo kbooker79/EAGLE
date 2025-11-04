@@ -2,7 +2,7 @@
 
 #### Step 1:
 Postprocess inference output to ensure it is correctly formatted for wxvx:
-`sbatch submit_validation.sh`
+`sbatch submit_postprocessing.sh`
 
 #### Step 2:
 After post-processing is complete, run:

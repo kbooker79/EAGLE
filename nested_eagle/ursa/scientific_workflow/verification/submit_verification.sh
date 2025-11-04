@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#SBATCH -J perform_validation 
+#SBATCH -J perform_verification 
 #SBATCH -o slurm-%j.out
 #SBATCH -e slurm-%j.err
 #SBATCH --account=epic
@@ -13,6 +13,12 @@
 source /scratch4/NAGAPE/epic/role-epic/miniconda/bin/activate
 
 export LD_LIBRARY_PATH=$CONDA_PREFIX/lib:$LD_LIBRARY_PATH
+
+export WORKDIR_BASE_PATH=$PWD
+
+sed -i "/^.*workdir:.*$/c\workdir: $BASE_PATH\/workdir\/lam" wxvx_lam.yaml
+
+sed -i "/^.*workdir:.*$/c\workdir: $BASE_PATH\/workdir\/global" wxvx_global.yaml
 
 conda activate wxvx 
 
