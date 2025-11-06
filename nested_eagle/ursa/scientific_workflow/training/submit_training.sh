@@ -1,8 +1,7 @@
 #!/bin/bash
-
-#SBATCH -J nested_eagle
-#SBATCH -o slurm/training.out
-#SBATCH -e slurm/training.err
+#SBATCH -J nested_eagle_training
+#SBATCH -o slurm/training.%j.out
+#SBATCH -e slurm/training.%j.err
 #SBATCH --nodes=1
 #SBATCH --account=epic
 #SBATCH -t 03:00:00
@@ -14,9 +13,8 @@
 
 source /scratch4/NAGAPE/epic/role-epic/miniconda/bin/activate 
 conda activate eagle
-module load openmpi
-module load cuda
-module load gcc
+module load openmpi cuda gcc
+
 export SLURM_GPUS_PER_NODE=1
 export LD_LIBRARY_PATH=$CONDA_PREFIX/lib:$LD_LIBRARY_PATH
 
