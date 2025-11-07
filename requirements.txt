@@ -1,4 +1,4 @@
-# Linting tools
+# Linting tool
 pylint
 
 # app dependencies
