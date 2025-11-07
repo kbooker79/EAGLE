@@ -9,4 +9,4 @@ ufs2arco==0.17.1
 anemoi-datasets==0.5.26
 anemoi-graphs==0.6.6
 eagle-tools==0.3.0
-yaml
+pyyaml==6.0.3
