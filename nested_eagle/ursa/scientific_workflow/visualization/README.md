@@ -18,7 +18,7 @@ Gather all statistics for CONUS (lam) domain:
 eagle-tools postwxvx postwxvx_lam.yaml
 ```
 
-These commands will then save `.nc` files with all relevant statistics in the wxvx directories. If you were to run these commands in this directory, the files would then be saved here: `../verification/wxvx_workdir/global` and `../verification/wxvx_workdir/global`. 
+These commands will then save `.nc` files with all relevant statistics in the wxvx directories. If you were to run these commands in this directory, the files would then be saved here: `../verification/wxvx_workdir/global` and `../verification/wxvx_workdir/lam`. 
 
 You will then see a nc file for each variable. To view statistics for 2m_temperature, for example, run the following:
 
