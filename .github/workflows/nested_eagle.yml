@@ -25,7 +25,7 @@ jobs:
         uses: actions-ecosystem/action-add-labels@v1
         with:
           labels: 'ci-running' # Adding ci-running label to prevent duplicate runs.
-          token: ${{ secrets.GH_TOKEN }}
+          github_token: ${{ secrets.GH_TOKEN }}
       - name: Submit Initial Grids
         run: |
           cd nested_eagle/ursa/scientific_workflow/data
