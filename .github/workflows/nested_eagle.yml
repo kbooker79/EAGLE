@@ -5,6 +5,8 @@ name: Nested Eagle CI Pipeline
 on:
   pull_request_review:
     types: [submitted]
+    paths: 
+      - 'nested_eagle/**' #only run for changes to nested eagle changes.
 jobs:
   Submit_Grids:
     if: github.event.review.state == 'approved' && ${{ !contains(github.event.pull_request.labels.*.name, 'ci-running') }}
