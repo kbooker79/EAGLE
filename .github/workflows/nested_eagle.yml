@@ -5,9 +5,11 @@ name: Nested Eagle CI Pipeline
 on:
   pull_request_review:
     types: [submitted]
+    paths: 
+      - 'nested_eagle/**' #only run for changes to nested eagle changes.
 jobs:
   Submit_Grids:
-    if: github.event.review.state == 'approved'
+    if: github.event.review.state == 'approved' && ${{ !contains(github.event.pull_request.labels.*.name, 'ci-running') }}
     # Only run the workflow if a PR is submitted and approved.
     runs-on: ursa
     timeout-minutes: 1440
@@ -19,6 +21,11 @@ jobs:
         with:
           ref: ${{ github.event.pull_request.head.ref }}
           repository: ${{ github.event.pull_request.head.repo.full_name }}
+      - name: Add a ci-running label
+        uses: actions-ecosystem/action-add-labels@v1
+        with:
+          labels: 'ci-running' # Adding ci-running label to prevent duplicate runs.
+          github_token: ${{ secrets.GH_TOKEN }}
       - name: Submit Initial Grids
         run: |
           cd nested_eagle/ursa/scientific_workflow/data
@@ -149,3 +156,9 @@ jobs:
              find ./lam -name "*.png" -print -quit | grep -q . || { echo "Error: No LAM verification plots found."; exit 1; } 
              find ./global -name "*.png" -print -quit | grep -q . || { echo "Error: No global verification plots found."; exit 1; } 
              echo "Verification process has been successfully completed."
+      - name: Remove label from pull request 
+        if: always()
+        uses: mondeja/remove-labels-gh-action@v2.0.0
+        with:
+          labels: 'ci-running'
+          token: ${{ secrets.GH_TOKEN }}
